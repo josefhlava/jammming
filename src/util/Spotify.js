@@ -1,9 +1,8 @@
 
 
 const clientId = '5c47fbe3d6314a189a74ec65b8378307';
-const redirectUri = 'http://localhost:3000';
+const redirectUri = 'http://jojammmapp.surge.sh';
 let accessToken;
-let currentToken = window.location.href.match(/access_token=([^&]*)/);
 
 const Spotify = {
     getAccessToken() {
@@ -22,7 +21,7 @@ const Spotify = {
             return accessToken;
             
         } else {
-            const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
+            const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}/`;
             window.location = accessUrl;
         }
     },
@@ -84,5 +83,5 @@ const Spotify = {
     }
 }
 
-export { accessToken, currentToken };
+export { accessToken };
 export default Spotify;
